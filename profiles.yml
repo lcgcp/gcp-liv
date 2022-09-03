@@ -10,19 +10,8 @@ my_new_project:  # your profile name from dbt_project.yml
       # name of the project in BigQuery
       dataset: liveability  
       # your dataset for development (usually your name)
-      threads: 4
-      timeout_seconds: 300
+      threads: 1
+      timeout_seconds: 299
       priority: interactive
-      retries: 1
+      fixed_retries: 1
     
-    prod: # your production environment
-      type: bigquery
-      method: oauth
-      project: my-gcp-learning-2022  
-      # name of the project in BigQuery
-      dataset: liveability  
-      # your dataset for production
-      threads: 4
-      timeout_seconds: 300
-      priority: interactive
-      retries: 1
