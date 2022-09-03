@@ -9,5 +9,5 @@ WORKDIR /dbt
 COPY --from=builder /app/server ./
 COPY script.sh ./
 COPY dbt_project.yml ./
-
+COPY profiles.yml ./
 ENTRYPOINT "./server"
