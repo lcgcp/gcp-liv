@@ -3,11 +3,10 @@ WORKDIR /app
 COPY invoke.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -v -o server
 
-FROM fishtownanalytics/dbt:0.17.0
+FROM fishtownanalytics/dbt:0.19.2
 USER root
 WORKDIR /dbt
 COPY --from=builder /app/server ./
 COPY script.sh ./
-COPY dbt_project.yml ./
-COPY profiles.yml ./
+COPY . ./
 ENTRYPOINT "./server"
